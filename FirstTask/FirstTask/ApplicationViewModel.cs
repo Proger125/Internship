@@ -102,7 +102,7 @@ namespace FirstTask
                         {
                             string column = operands[i].Substring(0, 2);
                             string r = new string("");
-                            r += operands[i][2];
+                            r += operands[i].Substring(2);
                             if (Array.IndexOf(c.headers, column) < c.M && Int32.Parse(r) <= c.N)
                             {
                                 double element = new double();
