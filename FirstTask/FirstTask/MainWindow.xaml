@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirstTask"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="FirstTask" Height="500" Width="700">
+    <StackPanel Orientation="Vertical" x:Name="MainStackPanel">
+        <WrapPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <Label Target="{Binding ElementName=FirstTextBox}">
+                    <AccessText TextWrapping="WrapWithOverflow">
+                        _Введите колличество строк в таблице
+                    </AccessText>
+                </Label>
+                <TextBox HorizontalAlignment="Left" Width="150px" x:Name="FirstTextBox">
+                    5
+                </TextBox>
+                <Label Target="{Binding ElementName=SecondTextBox}">
+                    <AccessText TextWrapping="WrapWithOverflow">
+                        _Введите колличество столбцов в таблице
+                    </AccessText>
+                </Label>
+                <TextBox HorizontalAlignment="Left" Width="150px" x:Name="SecondTextBox">
+                    5
+                </TextBox>
+            </StackPanel>
+            <Button x:Name="DrawButton" VerticalAlignment="Center" Background="Gainsboro" Click="DrawButton_Click">
+                Отрисовать таблицу
+            </Button>
+        </WrapPanel>
+        <DataGrid x:Name="MainTable" ItemsSource="{Binding}" HorizontalAlignment="Center"
+                  LoadingRow="MainTable_LoadingRow" CanUserAddRows="False"
+                  CellEditEnding="MainTable_CellEditEnding">
+            
+        </DataGrid>
+    </StackPanel>
 </Window>
